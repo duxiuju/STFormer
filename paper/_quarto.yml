@@ -1,0 +1,29 @@
+project:
+  type: manuscript
+  output-dir: _output
+  execute-dir: project
+  render:
+    - manuscript.qmd
+
+manuscript:
+  article: manuscript.qmd
+
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false
+
+bibliography: refs/references.bib
+# 可选：你以后选定期刊格式再加 CSL
+# csl: refs/elsevier-harvard.csl
+
+format:
+  pdf:
+    documentclass: article
+    pdf-engine: xelatex
+    number-sections: true
+    
+  html:
+    toc: true
+    number-sections: true

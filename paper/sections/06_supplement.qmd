@@ -1,0 +1,7 @@
+# Supplement
+
+- Extended metrics and additional benchmark tables.
+- Per-gene/per-sample detailed result breakdowns.
+- Additional qualitative spatial maps.
+- Sensitivity analyses and robustness checks.
+- Environment, package versions, and runtime notes.

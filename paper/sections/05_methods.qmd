@@ -1,0 +1,7 @@
+# Methods
+
+- Data sources, inclusion criteria, and split strategy.
+- Histology preprocessing, tile extraction, and QC pipeline.
+- STFormer architecture and training objective.
+- Baselines, hyperparameters, and evaluation metrics.
+- Statistical analysis and reproducibility details.

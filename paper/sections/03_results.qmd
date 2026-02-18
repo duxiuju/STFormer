@@ -1,0 +1,7 @@
+# Results
+
+- Overall predictive performance against baselines.
+- Gene-wise performance distribution and high/low performers.
+- Sample-level and cohort-level generalization results.
+- Spatial visualization: predicted vs. reference expression patterns.
+- Ablation summary: architecture and preprocessing choices.

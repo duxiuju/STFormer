@@ -1,0 +1,7 @@
+# Abstract
+
+- Background: Predicting spatial transcriptomics from pathology images remains challenging across cohorts.
+- Objective: Evaluate STFormer for robust cross-sample and cross-dataset performance.
+- Methods: Train and test with standardized preprocessing, paired image-gene tiles, and benchmark baselines.
+- Results: Report correlation-based metrics, gene-level performance, and qualitative spatial patterns.
+- Conclusion: Summarize practical value, key limitations, and next validation steps.

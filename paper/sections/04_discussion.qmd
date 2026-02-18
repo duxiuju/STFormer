@@ -1,0 +1,7 @@
+# Discussion
+
+- Interpretation of main findings and biological plausibility.
+- Comparison with prior literature and expected gains.
+- Failure modes and potential confounders.
+- Practical implications for translational workflows.
+- Limitations and future directions.

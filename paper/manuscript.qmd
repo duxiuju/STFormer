@@ -1,0 +1,23 @@
+---
+title: "STFormer Manuscript"
+author: "HE2ST Team"
+date: "2026-02-18"
+format:
+  pdf: default
+---
+
+# Introduction
+
+This manuscript is initialized with Quarto.
+
+# Methods
+
+Describe data, preprocessing, model, and evaluation here.
+
+# Results
+
+Summarize key quantitative and qualitative findings.
+
+# Discussion
+
+Discuss implications, limitations, and future work.

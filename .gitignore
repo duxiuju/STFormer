@@ -1,3 +1,8 @@
+# Quarto outputs (if you create paper/)
+.quarto/
+paper/_output/
+paper/_freeze/
+
 .DS_Store
 
 # data and derived artifacts (adjust to your policy)
@@ -11,6 +16,3 @@ TCGA/
 RData/
 Figures/
 
-# Quarto outputs (if you create paper/)
-paper/_output/
-paper/.quarto/

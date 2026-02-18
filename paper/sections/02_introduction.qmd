@@ -1,0 +1,7 @@
+# Introduction
+
+- Clinical motivation for spatially resolved molecular profiling.
+- Gaps in current histology-to-ST prediction methods.
+- Why transformer-based modeling may improve context learning.
+- Study goals and hypotheses for STFormer.
+- Contributions of this work (method, benchmark, analysis).
