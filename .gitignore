@@ -1,0 +1,16 @@
+.DS_Store
+
+# data and derived artifacts (adjust to your policy)
+newh5/
+PredictedST/
+ST_CMS_2023_Roche/
+PathologyAnno/
+OtherData/
+TCGA/
+
+RData/
+Figures/
+
+# Quarto outputs (if you create paper/)
+paper/_output/
+paper/.quarto/
