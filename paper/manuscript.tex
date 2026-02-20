@@ -1,0 +1,435 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  chinese,
+]{ctexart}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,provide=*]{babel}
+\else
+\usepackage[bidi=default,provide=*]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{目录}
+\else
+  \newcommand\contentsname{目录}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{图索引}
+\else
+  \newcommand\listfigurename{图索引}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{表索引}
+\else
+  \newcommand\listtablename{表索引}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{图}
+\else
+  \newcommand\figurename{图}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{表}
+\else
+  \newcommand\tablename{表}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{列表}
+\newcommand*\listoflistings{\listof{codelisting}{列表索引}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={WSI-Inferred Spatial Transcriptomics for Colorectal Cancer},
+  pdfauthor={Duxiuju et al.},
+  pdflang={zh-CN},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{WSI-Inferred Spatial Transcriptomics for Colorectal Cancer}
+\author{Duxiuju et al.}
+\date{2026-02-21}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{目录}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section{Abstract}\label{abstract}
+
+Spatial transcriptomics (ST) provides an interpretable molecular readout
+of tissue architecture, yet its clinical scalability is constrained by
+cost and tissue requirements. We developed and benchmarked a
+whole-slide-image (WSI)-to-ST inference framework across internal
+leave-one-patient-out cohorts and external datasets in colorectal
+cancer. Across 418 target genes, the framework achieved robust
+spot-level concordance with measured ST profiles and preserved
+biologically meaningful spatial gradients. Comparative evaluation
+against multiple state-of-the-art baselines showed consistently stronger
+correlation distributions and a higher fraction of genes above practical
+concordance thresholds. These findings indicate that histology-driven
+virtual ST can recover substantial transcriptomic structure from routine
+pathology images and may support hypothesis generation in settings where
+direct ST is unavailable.
+
+\section{Introduction}\label{introduction}
+
+Spatial context is central to colorectal cancer biology, where
+epithelial programs, stromal remodeling, and immune exclusion co-exist
+within heterogeneous tissue niches. Although ST can resolve this
+architecture, widespread deployment remains limited in retrospective
+cohorts and routine pathology workflows. Computational inference of ST
+from H\&E WSIs offers a pragmatic alternative, but the field still
+requires rigorous cross-cohort validation and transparent reporting of
+per-gene and per-sample behavior.
+
+Here, we evaluate a WSI-to-ST pipeline under internal and external
+settings, emphasizing clinically relevant robustness. We focus on
+gene-wise correlation structure, sample-level reproducibility, and
+interpretable summaries of model behavior. The study is designed to test
+not only aggregate performance but also whether inferred expression
+retains tissue-context fidelity across heterogeneous specimens.
+
+\section{Results}\label{results}
+
+\subsection{Robust cross-cohort concordance of WSI-inferred
+transcriptomes}\label{robust-cross-cohort-concordance-of-wsi-inferred-transcriptomes}
+
+We first evaluated gene-wise concordance between inferred and measured
+spatial transcriptomics in internal and external settings. In the
+external cohort, the global correlation distribution remained shifted
+toward positive agreement, indicating that the model generalizes beyond
+the training-like internal samples.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{../Figures/Correlations/Correlation_external.png}}
+
+}
+
+\caption{\label{fig-corr-external}External cohort gene-wise correlation
+distribution.}
+
+\end{figure}%
+
+Within the internal validation setting, per-sample correlation profiles
+showed consistent performance across patients, with expected
+heterogeneity in difficulty across tissue contexts.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{../Figures/Correlations/Correlations_internalCV_persample.png}}
+
+}
+
+\caption{\label{fig-corr-internal-sample}Internal per-sample correlation
+landscape (repository file:
+\texttt{Correlations\_internalCV\_persample.png}; corresponds to the
+requested internal per-sample correlation panel).}
+
+\end{figure}%
+
+Together, these results support stable transfer of histology-derived
+molecular signal and suggest that performance differences are driven
+more by sample complexity than by systematic model collapse.
+
+\subsection{Quantitative benchmarking supports model-level
+separation}\label{quantitative-benchmarking-supports-model-level-separation}
+
+To quantify practical utility, we summarized target-gene coverage and
+threshold-based concordance metrics. In the internal 14-CRC setting, the
+leading method shows higher central tendency and a larger fraction of
+genes exceeding moderate-to-high correlation cutoffs, consistent with
+distributional trends in Fig. 图~\ref{fig-corr-internal-sample}.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{../ThreeLineTable/14CRCSummary.png}}
+
+}
+
+\caption{\label{fig-tab-14crc}Internal 14-CRC summary table of model
+performance.}
+
+\end{figure}%
+
+External summaries recapitulated this ranking, supporting model
+robustness under distribution shift and independent sample
+characteristics.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{../ThreeLineTable/external_Summary.png}}
+
+}
+
+\caption{\label{fig-tab-external}External cohort summary table of model
+performance.}
+
+\end{figure}%
+
+\subsection{Clinical and biological context of inferred
+expression}\label{clinical-and-biological-context-of-inferred-expression}
+
+Clinical composition across cohorts (dataset source, localization, and
+spot-level sequencing depth surrogates) provides context for the
+observed variation in model behavior.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{../ThreeLineTable/clinicalCharacteristics.png}}
+
+}
+
+\caption{\label{fig-clinic}Clinical characteristics across internal and
+external cohorts.}
+
+\end{figure}%
+
+At the gene level, top-ranked concordant genes remained biologically
+coherent across internal and external sets, indicating that recovered
+signals are not dominated by idiosyncratic sample artifacts.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{../ThreeLineTable/Top10Genes_14CRC.png}}
+
+}
+
+\caption{\label{fig-top10-internal}Top 10 concordant genes per sample in
+internal 14-CRC cohort.}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{../ThreeLineTable/Top10Genes_External.png}}
+
+}
+
+\caption{\label{fig-top10-external}Top 10 concordant genes per sample in
+external cohorts.}
+
+\end{figure}%
+
+Collectively, these analyses indicate that WSI-inferred ST captures
+reproducible transcriptomic structure across datasets while preserving
+biologically interpretable gene-level patterns.
+
+\section{Discussion}\label{discussion}
+
+The present analysis demonstrates that virtual ST from WSIs can reach
+reproducible concordance across both internal and external colorectal
+datasets, with a clear advantage for the top-performing model in this
+benchmark. Importantly, improvements were not restricted to a few marker
+genes but extended to distribution-level shifts in per-gene correlations
+and threshold-based quality metrics.
+
+Several limitations remain. First, performance still varies by sample
+and tissue context, suggesting unresolved domain shifts in staining,
+cellular composition, or section quality. Second, correlation-based
+metrics do not fully capture pathway-level conservation or downstream
+clinical utility. Third, retrospective evaluation cannot substitute
+prospective deployment constraints.
+
+Future work should include prospective multi-center validation,
+uncertainty-aware calibration at spot level, and integration with
+pathology annotation priors to improve robustness in low-signal regions.
+
+\section{Methods}\label{methods}
+
+\subsection{Study Design}\label{study-design}
+
+We analyzed internal leave-one-patient-out data and external colorectal
+datasets, using measured ST as reference and model-inferred ST as
+prediction.
+
+\subsection{Computational Workflow}\label{computational-workflow}
+
+The repository pipeline follows ordered scripts: 1.
+\texttt{1\_Correlation\_0705\_Parallel.R}: computes correlation outputs.
+2. \texttt{2-Prepare\_gt\_pre\_csv\_for\_newh5\_Parallel.R}: prepares
+matched GT/prediction matrices. 3.
+\texttt{3\_newh5\_from\_csv\_0707\_Parallel.R}: builds intermediate
+\texttt{newh5} assets. 4. \texttt{4\_spe\_from\_newh5.R}: constructs
+\texttt{SpatialExperiment} objects and visualization outputs. 5.
+\texttt{5\_three\_line\_Table.R}: exports summary tables and top-gene
+reports.
+
+\subsection{Metrics and Reporting}\label{metrics-and-reporting}
+
+Primary endpoint: gene-wise spot-level correlation between inferred and
+measured ST. We report median/mean correlation and the proportion of
+genes above thresholds (0.20, 0.30, 0.40, 0.50).
+
+\subsection{Statistical Notes}\label{statistical-notes}
+
+Results are descriptive and benchmark-oriented; figures summarize
+distributional trends across genes and samples.
+
+\section{Supplements}\label{supplements}
+
+\subsection{Supplementary Figures and
+Tables}\label{supplementary-figures-and-tables}
+
+\begin{itemize}
+\tightlist
+\item
+  Correlation summaries and per-sample views are provided in
+  \texttt{Figures/Correlations/}.
+\item
+  Cohort-level and external summary tables are provided in
+  \texttt{ThreeLineTable/}.
+\end{itemize}
+
+\subsection{Reproducibility}\label{reproducibility}
+
+All outputs reported in this manuscript are generated from scripts in
+the repository root and can be reproduced via \texttt{Rscript} execution
+in sequence.
+
+
+
+
+\end{document}

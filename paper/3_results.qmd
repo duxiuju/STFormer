@@ -1,0 +1,37 @@
+# Results
+
+## Robust cross-cohort concordance of WSI-inferred transcriptomes
+
+We first evaluated gene-wise concordance between inferred and measured spatial transcriptomics in internal and external settings. In the external cohort, the global correlation distribution remained shifted toward positive agreement, indicating that the model generalizes beyond the training-like internal samples.
+
+![External cohort gene-wise correlation distribution.](../Figures/Correlations/Correlation_external.png){#fig-corr-external fig-pos='H'}
+
+Within the internal validation setting, per-sample correlation profiles showed consistent performance across patients, with expected heterogeneity in difficulty across tissue contexts.
+
+![Internal per-sample correlation landscape (repository file: `Correlations_internalCV_persample.png`; corresponds to the requested internal per-sample correlation panel).](../Figures/Correlations/Correlations_internalCV_persample.png){#fig-corr-internal-sample fig-pos='H'}
+
+Together, these results support stable transfer of histology-derived molecular signal and suggest that performance differences are driven more by sample complexity than by systematic model collapse.
+
+## Quantitative benchmarking supports model-level separation
+
+To quantify practical utility, we summarized target-gene coverage and threshold-based concordance metrics. In the internal 14-CRC setting, the leading method shows higher central tendency and a larger fraction of genes exceeding moderate-to-high correlation cutoffs, consistent with distributional trends in Fig. @fig-corr-internal-sample.
+
+![Internal 14-CRC summary table of model performance.](../ThreeLineTable/14CRCSummary.png){#fig-tab-14crc fig-pos='H'}
+
+External summaries recapitulated this ranking, supporting model robustness under distribution shift and independent sample characteristics.
+
+![External cohort summary table of model performance.](../ThreeLineTable/external_Summary.png){#fig-tab-external fig-pos='H'}
+
+## Clinical and biological context of inferred expression
+
+Clinical composition across cohorts (dataset source, localization, and spot-level sequencing depth surrogates) provides context for the observed variation in model behavior.
+
+![Clinical characteristics across internal and external cohorts.](../ThreeLineTable/clinicalCharacteristics.png){#fig-clinic fig-pos='H'}
+
+At the gene level, top-ranked concordant genes remained biologically coherent across internal and external sets, indicating that recovered signals are not dominated by idiosyncratic sample artifacts.
+
+![Top 10 concordant genes per sample in internal 14-CRC cohort.](../ThreeLineTable/Top10Genes_14CRC.png){#fig-top10-internal fig-pos='H'}
+
+![Top 10 concordant genes per sample in external cohorts.](../ThreeLineTable/Top10Genes_External.png){#fig-top10-external fig-pos='H'}
+
+Collectively, these analyses indicate that WSI-inferred ST captures reproducible transcriptomic structure across datasets while preserving biologically interpretable gene-level patterns.

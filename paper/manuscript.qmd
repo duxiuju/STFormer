@@ -1,0 +1,31 @@
+---
+title: "WSI-Inferred Spatial Transcriptomics for Colorectal Cancer"
+author:
+  - name: "Duxiuju et al."
+date: today
+lang: zh-CN
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: ctexart
+    toc: true
+    number-sections: true
+    keep-tex: true
+    output-file: manuscript.pdf
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+{{< include 1_abstract.qmd >}}
+
+{{< include 2_introduction.qmd >}}
+
+{{< include 3_results.qmd >}}
+
+{{< include 4_discussion.qmd >}}
+
+{{< include 5_methods.qmd >}}
+
+{{< include 6_supplements.qmd >}}

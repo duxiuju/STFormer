@@ -12,5 +12,6 @@ RData/
 Figures/
 
 # Quarto outputs (if you create paper/)
-paper/_output/
-paper/.quarto/
+# paper/_output/
+# paper/.quarto/
+

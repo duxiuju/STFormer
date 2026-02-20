@@ -1,0 +1,8 @@
+# Supplements
+
+## Supplementary Figures and Tables
+- Correlation summaries and per-sample views are provided in `Figures/Correlations/`.
+- Cohort-level and external summary tables are provided in `ThreeLineTable/`.
+
+## Reproducibility
+All outputs reported in this manuscript are generated from scripts in the repository root and can be reproduced via `Rscript` execution in sequence.
