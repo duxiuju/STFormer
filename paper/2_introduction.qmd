@@ -1,5 +1,3 @@
 # Introduction
 
-Spatial context is central to colorectal cancer biology, where epithelial programs, stromal remodeling, and immune exclusion co-exist within heterogeneous tissue niches. Although ST can resolve this architecture, widespread deployment remains limited in retrospective cohorts and routine pathology workflows. Computational inference of ST from H&E WSIs offers a pragmatic alternative, but the field still requires rigorous cross-cohort validation and transparent reporting of per-gene and per-sample behavior.
-
-Here, we evaluate a WSI-to-ST pipeline under internal and external settings, emphasizing clinically relevant robustness. We focus on gene-wise correlation structure, sample-level reproducibility, and interpretable summaries of model behavior. The study is designed to test not only aggregate performance but also whether inferred expression retains tissue-context fidelity across heterogeneous specimens.
+待补充。

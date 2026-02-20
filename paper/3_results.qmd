@@ -1,37 +1,33 @@
 # Results
 
-## Robust cross-cohort concordance of WSI-inferred transcriptomes
+## WSI2ST在外部队列中保持稳定的基因层面一致性
 
-We first evaluated gene-wise concordance between inferred and measured spatial transcriptomics in internal and external settings. In the external cohort, the global correlation distribution remained shifted toward positive agreement, indicating that the model generalizes beyond the training-like internal samples.
+我们首先在外部数据集中评估预测表达与实测ST之间的基因级相关性分布。`Correlation_external.png` 显示，整体分布明显向正相关偏移，说明模型并非仅在内部训练近邻样本中有效，而是能够在跨队列条件下保留可迁移的空间分子信号。该结果支持WSI2ST在真实应用场景中的外推能力。
 
-![External cohort gene-wise correlation distribution.](../Figures/Correlations/Correlation_external.png){#fig-corr-external fig-pos='H'}
+![外部队列基因级相关性分布。](../Figures/Correlations/Correlation_external.png){#fig-corr-external fig-pos='H'}
 
-Within the internal validation setting, per-sample correlation profiles showed consistent performance across patients, with expected heterogeneity in difficulty across tissue contexts.
+## 内部逐样本分析揭示“稳定性主导、异质性可解释”
 
-![Internal per-sample correlation landscape (repository file: `Correlations_internalCV_persample.png`; corresponds to the requested internal per-sample correlation panel).](../Figures/Correlations/Correlations_internalCV_persample.png){#fig-corr-internal-sample fig-pos='H'}
+在内部逐样本分析中，`Correlation_internal_persample.png` 显示不同病例间的相关性水平存在可观但有界的波动。关键点在于，性能波动主要体现为“程度差异”而非“方向反转”：大多数样本仍维持正向一致性。这种模式符合结直肠癌组织学异质性的预期，也提示误差来源更可能与局部组织构成、切片质量和微环境复杂度相关，而不是模型机制失效。
 
-Together, these results support stable transfer of histology-derived molecular signal and suggest that performance differences are driven more by sample complexity than by systematic model collapse.
+![内部逐样本相关性比较。](../Figures/Correlations/Correlation_internal_persample.png){#fig-corr-internal-sample fig-pos='H'}
 
-## Quantitative benchmarking supports model-level separation
+## 定量汇总表明模型优势具有跨场景一致性
 
-To quantify practical utility, we summarized target-gene coverage and threshold-based concordance metrics. In the internal 14-CRC setting, the leading method shows higher central tendency and a larger fraction of genes exceeding moderate-to-high correlation cutoffs, consistent with distributional trends in Fig. @fig-corr-internal-sample.
+`14CRCSummary.png` 与 `external_Summary.png` 从目标基因覆盖、中位/均值相关性，以及相关性阈值（≥0.20、0.30、0.40、0.50）达标比例等维度进行量化。两张汇总图在内部与外部场景下给出一致结论：领先模型不仅在中心趋势上更优，也在高阈值区间维持更高基因占比，说明其提升并非由少数“易预测基因”驱动，而是分布层面的整体改进。
 
-![Internal 14-CRC summary table of model performance.](../ThreeLineTable/14CRCSummary.png){#fig-tab-14crc fig-pos='H'}
+![内部14CRC队列模型性能汇总。](../ThreeLineTable/14CRCSummary.png){#fig-summary-internal fig-pos='H'}
 
-External summaries recapitulated this ranking, supporting model robustness under distribution shift and independent sample characteristics.
+![外部队列模型性能汇总。](../ThreeLineTable/external_Summary.png){#fig-summary-external fig-pos='H'}
 
-![External cohort summary table of model performance.](../ThreeLineTable/external_Summary.png){#fig-tab-external fig-pos='H'}
+## 临床构成与Top基因结果支持生物学可解释性
 
-## Clinical and biological context of inferred expression
+`clinicalCharacteristics.png` 给出了数据来源、解剖部位与spot层面测序复杂度，帮助解释跨样本差异的临床与技术背景。进一步地，`Top10Genes_14CRC.png` 与 `Top10Genes_External.png` 显示高一致性基因在内部和外部队列中具有延续性，提示模型恢复的并非随机表达噪声，而是与组织形态耦合的稳定分子模式。
 
-Clinical composition across cohorts (dataset source, localization, and spot-level sequencing depth surrogates) provides context for the observed variation in model behavior.
+![队列临床与样本特征。](../ThreeLineTable/clinicalCharacteristics.png){#fig-clinical fig-pos='H'}
 
-![Clinical characteristics across internal and external cohorts.](../ThreeLineTable/clinicalCharacteristics.png){#fig-clinic fig-pos='H'}
+![内部14CRC队列每样本Top10一致性基因。](../ThreeLineTable/Top10Genes_14CRC.png){#fig-top10-internal fig-pos='H'}
 
-At the gene level, top-ranked concordant genes remained biologically coherent across internal and external sets, indicating that recovered signals are not dominated by idiosyncratic sample artifacts.
+![外部队列每样本Top10一致性基因。](../ThreeLineTable/Top10Genes_External.png){#fig-top10-external fig-pos='H'}
 
-![Top 10 concordant genes per sample in internal 14-CRC cohort.](../ThreeLineTable/Top10Genes_14CRC.png){#fig-top10-internal fig-pos='H'}
-
-![Top 10 concordant genes per sample in external cohorts.](../ThreeLineTable/Top10Genes_External.png){#fig-top10-external fig-pos='H'}
-
-Collectively, these analyses indicate that WSI-inferred ST captures reproducible transcriptomic structure across datasets while preserving biologically interpretable gene-level patterns.
+综合来看，WSI2ST在内部与外部验证中均实现了稳健的相关性表现和可解释的基因层面保真度，为在缺乏直接ST测量时进行空间分子推断提供了可行路径。

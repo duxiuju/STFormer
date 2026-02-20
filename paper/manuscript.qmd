@@ -1,5 +1,5 @@
 ---
-title: "WSI-Inferred Spatial Transcriptomics for Colorectal Cancer"
+title: "WSI2ST in Colorectal Cancer"
 author:
   - name: "Duxiuju et al."
 date: today
@@ -11,7 +11,6 @@ format:
     toc: true
     number-sections: true
     keep-tex: true
-    output-file: manuscript.pdf
 execute:
   echo: false
   warning: false
